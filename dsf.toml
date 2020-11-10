@@ -1,0 +1,45 @@
+[metadata]
+org = "Uptime"
+scope = "dev"
+maintainer = "Andrelin"
+
+[helmRepos]
+stable = "https://charts.helm.sh/stable"
+jenkins = "https://charts.jenkins.io"
+chartmuseum = "http://localhost:8080"
+
+[namespaces.apps.labels]
+env = "apps"
+
+[apps.sanntid-sample-app]
+name = "sanntid-sample-app"
+description = "Sanntids Sample Application"
+namespace = "apps"
+enabled = true
+chart = "chartmuseum/sanntid-sample-app"
+version = "0.0.1"
+valuesFiles = [ "values/sanntid-sample-app.yaml",]
+purge = true
+test = false
+
+[apps.kafka-streams-demo]
+name = "kafka-streams-demo"
+description = "Kafka Streams demo app"
+namespace = "apps"
+enabled = true
+chart = "chartmuseum/kafka-streams-demo"
+version = "0.0.1"
+valuesFiles = [ "values/kafka-streams-demo.yaml",]
+purge = true
+test = false
+
+# [apps.uptime-demo-app]
+# name = "uptime-demo-app"
+# description = "Uptime demo app"
+# namespace = "apps"
+# enabled = true
+# chart = "chartmuseum/uptime-demo-app"
+# version = "0.0.1"
+# valuesFiles = [ "values/uptime-demo-app.yaml",]
+# purge = true
+# test = false
