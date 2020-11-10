@@ -1,0 +1,43 @@
+apiVersion: v1
+data:
+  application.yml: |
+    endpoints.jmx.enabled: true
+    health.config.enabled: false
+
+    kafka:
+      configuration:
+        "[replication.factor]": 3
+
+      bootstrapServers: localhost:9092
+      schemaRegistryUrl: dummy
+      zkNodes: localhost:2181
+      replicationFactor: 3
+      partitions: 6
+      retentionMs: 172800000
+      cleanUpStreams: false
+
+    logging.level:
+      root: ${LOG_LEVEL:INFO}
+      org.apache.kafka: ${LOG_LEVEL:WARN}
+
+    spring:
+      jackson:
+        serialization:
+          indent_output: true
+      jmx:
+        enabled: true
+      security:
+        user:
+          roles: admin
+          name: admin
+          password: test
+
+    meta:
+      environment: dev
+      namespace: apps
+
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: application.yml
+  namespace: apps

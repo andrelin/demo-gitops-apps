@@ -30,10 +30,10 @@ pipeline {
                             usernameVariable: "CHARTMUSEUM_USER",
                             passwordVariable: "CHARTMUSEUM_PASSWORD"
                         ),
-                        [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'ecr-creds']
                     ]) {
                         script {
-                            lock(u.get_lock_name("rdpmon", "rdp-monitoring-dev")) {
+                            lock("deploy-apps")) {
+                                sh "kubectl apply -f _resources/application.yaml"
                                 sh "helmsman --debug --apply -f dsf.toml --kubeconfig kubeconfig.yaml"
                             }
                         }
