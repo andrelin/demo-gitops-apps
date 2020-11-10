@@ -8,9 +8,9 @@ data:
       configuration:
         "[replication.factor]": 3
 
-      bootstrapServers: localhost:9092
-      schemaRegistryUrl: dummy
-      zkNodes: localhost:2181
+      bootstrapServers: confluent-platform-cp-kafka.core:9092
+      schemaRegistryUrl: confluent-platform-cp-schema-registry:8081
+      zkNodes: confluent-platform-cp-zookeeper.core:2181
       replicationFactor: 3
       partitions: 6
       retentionMs: 172800000

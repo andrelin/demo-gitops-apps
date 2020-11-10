@@ -15,9 +15,9 @@ env = "apps"
 name = "kafka-streams-demo"
 description = "Kafka Streams demo app"
 namespace = "apps"
-enabled = true
+enabled = false
 chart = "chartmuseum/streams-demo-app"
-version = "0.0.2"
+version = "0.0.3"
 valuesFiles = [ "values/kafka-streams-demo.yaml",]
 purge = true
 test = false
@@ -26,31 +26,9 @@ test = false
 name = "kafka-streams-demo-bonus"
 description = "Kafka Streams demo app"
 namespace = "apps"
-enabled = true
+enabled = false
 chart = "chartmuseum/streams-demo-app"
 version = "0.0.2"
 valuesFiles = [ "values/kafka-streams-demo-bonus.yaml",]
 purge = true
 test = false
-
-# [apps.uptime-demo-app]
-# name = "uptime-demo-app"
-# description = "Uptime demo app"
-# namespace = "apps"
-# enabled = true
-# chart = "chartmuseum/uptime-demo-app"
-# version = "0.0.1"
-# valuesFiles = [ "values/uptime-demo-app.yaml",]
-# purge = true
-# test = false
-
-# [apps.sanntid-sample-app]
-# name = "sanntid-sample-app"
-# description = "Sanntids Sample Application"
-# namespace = "apps"
-# enabled = true
-# chart = "chartmuseum/sanntid-sample-app"
-# version = "0.0.1"
-# valuesFiles = [ "values/sanntid-sample-app.yaml",]
-# purge = true
-# test = false

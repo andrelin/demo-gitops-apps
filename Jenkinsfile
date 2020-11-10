@@ -1,4 +1,3 @@
-u = new utils()
 import java.text.SimpleDateFormat
 
 pipeline {
@@ -9,21 +8,18 @@ pipeline {
     agent {
         kubernetes {
             cloud "kubernetes"
-            label "rdpmon-dev"
-            serviceAccount "jenkins-build"
-            yamlFile "helmsman.yaml"
+            label "apps"
+            serviceAccount "jenkins"
+            yamlFile "demo-deployer.yaml"
         }
     }
-    environment {
-        cmAddr = "http://core-chartmuseum.core.svc.cluster.local:8080"
-    }
     stages {
-        stage("Deploy Dev") {
+        stage("Deploy Apps") {
             when {
                 branch "master"
             }
             steps {
-                container("helmsman") {
+                container("demo-deployer") {
                     withCredentials([
                         usernamePassword(
                             credentialsId: "chartmuseum",
