@@ -32,3 +32,14 @@ version = "0.0.2"
 valuesFiles = [ "values/kafka-streams-demo-bonus.yaml",]
 purge = true
 test = false
+
+[apps.uptime-demo-app]
+name = "uptime-demo-app"
+description = "Uptime demo app"
+namespace = "apps"
+enabled = false
+chart = "chartmuseum/uptime-demo-app"
+version = "0.0.1"
+valuesFiles = [ "values/uptime-demo-app.yaml",]
+purge = true
+test = false
